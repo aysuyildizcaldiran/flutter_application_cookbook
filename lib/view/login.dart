@@ -82,6 +82,7 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
+            _googleButton(),
           ]),
         ),
       ),
@@ -99,6 +100,50 @@ class _LoginState extends State<Login> {
         Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const Home()), (route) => false);
       });
     }
+  }
+
+  InkWell _googleButton() {
+    return InkWell(
+      onTap: () => _loginWithGoogle(),
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 5),
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.red, width: 2),
+            color: Colors.red,
+            borderRadius: const BorderRadius.all(Radius.circular(100))),
+        child: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: _googleButtonBody(),
+        ),
+      ),
+    );
+  }
+
+  Center _googleButtonBody() {
+    return Center(
+        child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          Icons.abc,
+          color: Colors.white,
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        Text(
+          "Google Login",
+          style: TextStyle(color: Colors.white),
+        ),
+      ],
+    ));
+  }
+
+  void _loginWithGoogle() {
+    _authService.signInWithGoogle().then((value) {
+      return Navigator.pushAndRemoveUntil(
+          context, MaterialPageRoute(builder: (context) => const HomePage()), (route) => false);
+    });
   }
 }
 
