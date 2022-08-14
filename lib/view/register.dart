@@ -35,6 +35,7 @@ class _RegisterState extends State<Register> {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: TextField(
+                style: const TextStyle(color: Colors.white),
                 controller: _nameController,
                 keyboardType: TextInputType.name,
                 autofocus: true,
@@ -46,6 +47,7 @@ class _RegisterState extends State<Register> {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: TextField(
+                style: const TextStyle(color: Colors.white),
                 controller: _emailController,
                 keyboardType: TextInputType.name,
                 autofocus: true,
@@ -57,6 +59,7 @@ class _RegisterState extends State<Register> {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: TextField(
+                style: const TextStyle(color: Colors.white),
                 controller: _telephoneController,
                 keyboardType: TextInputType.phone,
                 autofocus: true,
@@ -68,6 +71,7 @@ class _RegisterState extends State<Register> {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: TextField(
+                style: const TextStyle(color: Colors.white),
                 controller: _passwordController,
                 keyboardType: TextInputType.visiblePassword,
                 autofocus: true,

@@ -30,11 +30,12 @@ class _LoginState extends State<Login> {
           ),
         ),
         child: Container(
-          padding: EdgeInsets.all(50),
+          padding: EdgeInsets.only(top: 150, right: 30, left: 30),
           child: Column(children: [
             Padding(
               padding: EdgeInsets.all(8.0),
               child: TextField(
+                style: TextStyle(color: Colors.white),
                 controller: _emailController,
                 keyboardType: TextInputType.name,
                 autofocus: true,
@@ -47,6 +48,7 @@ class _LoginState extends State<Login> {
               padding: EdgeInsets.all(8.0),
               child: TextField(
                 controller: _passwordController,
+                style: TextStyle(color: Colors.white),
                 keyboardType: TextInputType.visiblePassword,
                 autofocus: true,
                 autofillHints: const [AutofillHints.password],

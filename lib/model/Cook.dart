@@ -13,6 +13,6 @@ class Cook {
         postId: snapshot.id,
         cookExplanation: snapshot["cookexplanation"],
         name: snapshot["cookname"],
-        image: snapshot['image']);
+        image: snapshot["image"]);
   }
 }

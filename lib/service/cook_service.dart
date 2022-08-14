@@ -8,15 +8,14 @@ import '../model/Cook.dart';
 class CookService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final StorageService _storageService = StorageService();
-  String _mediaUrl = '';
 
   Future<Cook> addFood(String cookExplanation, String name, XFile pickedFile) async {
     var ref = _firestore.collection("Post");
-    _mediaUrl = await _storageService.uploadMedia(File(pickedFile.path));
+    String mediaUrl = await _storageService.uploadMedia(File(pickedFile.path));
 
-    var documentRef = await ref.add({'cookExplanation': cookExplanation, 'name': name, 'image': _mediaUrl});
-
-    return Cook(postId: documentRef.id, cookExplanation: cookExplanation, name: name, image: _mediaUrl);
+    var documentRef =
+        await ref.add({'postId': ref.id, 'cookExplanation': cookExplanation, 'name': name, 'image': mediaUrl});
+    return Cook(postId: documentRef.id, cookExplanation: cookExplanation, name: name, image: mediaUrl);
   }
 
   Stream<QuerySnapshot> getFood() {
